@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { CatagoryNameComponent } from './components/catagory-name/catagory-name.component';
 import { MainComponent } from './components/main/main.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SubCatagoryComponent } from './components/sub-catagory/sub-catagory.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     HeaderComponent,
     CatagoryNameComponent,
     MainComponent,
+    SubCatagoryComponent,
   ],
   imports: [
     BrowserModule,
