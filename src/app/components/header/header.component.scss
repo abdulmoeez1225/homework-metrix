@@ -209,7 +209,7 @@ header .right-header-actions .navbar-nav li:last-child {
     }
 
 .lang-icon {
-    background-image: url(/src/assets/images/lang.svg);
+    background-image: url(../../../assets/images/lang.svg);
     height: 18px;
     width: 18px;
     display: block;
@@ -284,19 +284,19 @@ li.nav-item.lang span {
   }
   
   .dashboard-icon {
-    background-image: url("/src/assets/images/dashboard.svg");
+    background-image: url("../../../assets/images/dashboard.svg");
   }
   
   .bussines-icon {
-    background-image: url("/src/assets/images/bussines.svg");
+    background-image: url("../../../assets/images/bussines.svg");
   }
   
   .user-managment {
-    background-image: url("/src/assets/images/user-managment.svg");
+    background-image: url("../../../assets/images/user-managment.svg");
   }
   
   .tasks-managment {
-    background-image: url("/src/assets/images/tasks-managment.svg");
+    background-image: url("../../../assets/images/tasks-managment.svg");
   }
   
   .circle-menu {
@@ -328,7 +328,7 @@ li.nav-item.lang span {
     -ms-border-radius: 50%;
     border-radius: 50%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    background-image: url(/src/assets/images/noti.svg);
+    background-image: url(../../../assets/images/noti.svg);
     background-size: cover;
     position: absolute;
     margin-left: auto;
@@ -418,21 +418,21 @@ li.nav-item.lang span {
   }
   
   .circle-menu ul li.bussines-icon-li:hover {
-    background-image: url("/src/assets/images/active-bussines.svg");
+    background-image: url("../../../assets/images/active-bussines.svg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
   }
   
   .circle-menu ul li.dashboard-icon-li:hover {
-    background-image: url("/src/assets/images/dashboard-active.svg");
+    background-image: url("../../../assets/images/dashboard-active.svg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
   }
   
   .circle-menu ul li.user-icon-li:hover {
-    background-image: url("/src/assets/images/settings-active.svg");
+    background-image: url("../../../assets/images/settings-active.svg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
