@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { v4 as uuidv4 } from 'uuid';
 @Component({
   selector: 'app-catagory-name',
   templateUrl: './catagory-name.component.html',
@@ -15,15 +16,16 @@ export class CatagoryNameComponent implements OnInit {
   ]
 
   catagoryForm = new FormGroup ({
-    language: new FormControl('', Validators.required),
-    name: new FormControl('', Validators.required),
-    description: new FormControl('', Validators.required),
-    color: new FormControl('', Validators.required),
-    dataType: new FormControl('', Validators.required),
-    priority: new FormControl('', Validators.required)
+    id: new FormControl(uuidv4()),
+    language: new FormControl(''),
+    name: new FormControl(''),
+    description: new FormControl(''),
+    color: new FormControl(''),
+    dataType: new FormControl(''),
+    priority: new FormControl('')
   })
 
-  @Output() sendDatatoMain: EventEmitter <any> = new EventEmitter;
+  @Output() catagoryFormData: EventEmitter <any> = new EventEmitter;
   @Output() closeModelCatagory: EventEmitter <any> = new EventEmitter;
 
   constructor() { }
@@ -55,10 +57,10 @@ export class CatagoryNameComponent implements OnInit {
   }
 
   saveData() {
+    
+    console.log("Form Data", this.catagoryForm.value);
+    this.catagoryFormData.emit(this.catagoryForm.value)
     this.catagoryForm.reset();
-    console.log("Form Data", this.catagoryForm);
-
-    this.sendDatatoMain.emit(this.catagoryForm)
   }
 
   cancelData() {
