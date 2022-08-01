@@ -55,21 +55,10 @@
                                         <label>
                                             Color
                                         </label>
-                                        <div class="row all-colors">
-                                            <div class="col-sm-6 col-md-3">
-                                                <div class="single-color-box green active" title="green">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6 col-md-3">
-                                                <div class="single-color-box blue" title="blue">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6 col-md-3">
-                                                <div class="single-color-box yellow" title="yellow">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6 col-md-3">
-                                                <div class="single-color-box red" title="red">
+                                        <div class="row all-colors" >
+                                            <div *ngFor="let item of colorArray" class="col-sm-6 col-md-3" >
+                                                <div class="single-color-box {{item.class}}" [ngClass]="{'active': item.active }"
+                                                    (click)="colorobject(item)">
                                                 </div>
                                             </div>
                                         </div>
@@ -637,15 +626,16 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer p-2">
+            <div class="modal-footer p-2"> 
+                 <button data-dismiss="modal" aria-label="Close" type="button" id="saveForceChanges" class="btn icon-btn search-btn mt-2 float-right btn-width">
+                <img src="assets/images/save-icon.svg" />
+                Save
+            </button>
                 <button data-dismiss="modal" aria-label="Close" id="closeBtn" type="button" class="btn icon-btn btn-secondary float-right ml-3 mt-2 btn-width">
                     <img src="assets/images/rejected.svg">
                     Cancel
                 </button>
-                <button data-dismiss="modal" aria-label="Close" type="button" id="saveForceChanges" class="btn icon-btn search-btn mt-2 float-right btn-width">
-                    <img src="assets/images/save-icon.svg" />
-                    Save
-                </button>
+              
             </div>
         </div>
     </div>
