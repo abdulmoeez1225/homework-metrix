@@ -21,6 +21,7 @@ export class MainComponent implements OnInit {
     data.Sub = [];
     this.mainArray.push(data);
     this.showCatagorynameModel = false;
+    console.log("data received", this.mainArray)
   }
 
   closeModelCatagory(bol:boolean){
