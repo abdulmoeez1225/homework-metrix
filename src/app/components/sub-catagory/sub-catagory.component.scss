@@ -1,0 +1,48 @@
+
+.form-control{
+    border-radius: 180px;
+    background-color: #ffffff;
+    border: 1px solid #cdd8dc;
+    color: #708790;
+    font-size: 14px;
+    height: 30px;
+}
+
+.form-control.text-area {
+    border-radius: 7px;
+    height: 100px;
+
+}
+
+.btn-default{
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #39AFD1;
+    border-radius: 180px;
+    font-size: 13px;
+    padding: 0.15rem 0.75rem 0.25rem 0.75rem
+   
+}
+
+.btn-default img {
+    height: 18px;
+}
+
+.icon-btn img {
+    height: 17px;
+    float: left;
+    margin-top: 2px;
+}
+
+.search-btn {
+    background-color: #4CAAAA;
+    color: #ffffff;
+}
+
+.btn {
+    border-radius: 208px;
+    font-size: 14px;
+}
+.btn-width {
+    width: 85px;
+}

@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class MainComponent implements OnInit {
   showCatagorynameModel = false;
   mainArray:any = [];
+  showsubModel = false
   constructor() { }
 
   ngOnInit(): void {
@@ -30,4 +31,19 @@ export class MainComponent implements OnInit {
     }
   }
 
+  opensubCatagory(){
+    this.showsubModel = !this.showsubModel;
+  }
+
+  subFormData(data:any){
+    
+
+    this.showsubModel = false;
+  }
+
+  closeModelSub(bol:boolean){
+    if(bol == false){
+    this.showsubModel = false;
+    }
+  }
 }

@@ -7,6 +7,8 @@
                         <div class="card-body p-2">
                             <div class="main-canvas map-list">
                                 <button (click)="openModelCatagory()" >Add Catagory</button>
+                                <br><br>
+                                <button (click)="opensubCatagory()" >Add Sub Catagoru</button>
                             </div>
                         </div>
                     </div>
@@ -15,8 +17,15 @@
         </div>
     </div>
 </div>
-<app-catagory-name *ngIf="showCatagorynameModel" 
+<app-catagory-name 
+*ngIf="showCatagorynameModel" 
 class="catagoryNameModel" 
 (catagoryFormData)="catagoryFormData($event)" 
 (closeModelCatagory)="closeModelCatagory($event)"
 ></app-catagory-name>
+<app-sub-catagory 
+*ngIf="showsubModel"
+class="subModel"
+(subFormData)="subFormData($event)"
+(closeModelSub)="closeModelSub($event)"
+></app-sub-catagory>

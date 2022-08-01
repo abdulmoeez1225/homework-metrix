@@ -1,5 +1,5 @@
 <div class="modal-dialog modal-dialog-slideout modal-lg custom-width" role="document">
-    <form [formGroup]="catagoryForm" (ngSubmit)="saveData()">
+    <form [formGroup]="subForm" (ngSubmit)="saveData()">
         <div class="modal-content">
             <div class="modal-body pt-2">
                 <ul class="nav nav-tabs border-tabs">
@@ -53,21 +53,6 @@
                                         <img class="mr-1" src="assets/images/add-white.svg">
                                         Add Language
                                     </button>
-                                </div>
-
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label>
-                                            Color
-                                        </label>
-                                        <div class="row all-colors">
-                                            <div *ngFor="let item of colorArray" class="col-sm-6 col-md-3">
-                                                <div class="single-color-box {{item.class}}"
-                                                    [ngClass]="{'active': item.active }" (click)="colorobject(item)">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-6">
