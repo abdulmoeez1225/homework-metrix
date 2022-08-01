@@ -1,0 +1,19 @@
+.single-color-box {
+    width: 100%;
+    height: 60px;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.single-color-box:hover {
+    transform: scale(1.1);
+}
+
+.single-color-box.active {
+    background-image: url('../../../assets/images/selected-icon.svg');
+    background-size: 32%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}

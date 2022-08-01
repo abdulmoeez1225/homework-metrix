@@ -15,4 +15,8 @@
         </div>
     </div>
 </div>
-<app-catagory-name *ngIf="showCatagorynameModel" class="catagoryNameModel"></app-catagory-name>
+<app-catagory-name *ngIf="showCatagorynameModel" 
+class="catagoryNameModel" 
+(sendDatatoMain)="catagoryFormData($event)" 
+(closeModelCatagory)="closeModelCatagory($event)"
+></app-catagory-name>

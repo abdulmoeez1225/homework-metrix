@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
   showCatagorynameModel = false;
+  mainArray:any = [];
   constructor() { }
 
   ngOnInit(): void {
@@ -14,6 +15,18 @@ export class MainComponent implements OnInit {
 
   openModelCatagory(){
     this.showCatagorynameModel = !this.showCatagorynameModel;
+  }
+
+  catagoryFormData(data:any){
+    data.Sub = [];
+    this.mainArray.push(data);
+    this.showCatagorynameModel = false;
+  }
+
+  closeModelCatagory(bol:boolean){
+    if(bol == false){
+      this.showCatagorynameModel = false;
+    }
   }
 
 }
