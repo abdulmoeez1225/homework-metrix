@@ -179,3 +179,8 @@ label.checkbox-awesom .circle {
     min-height: 30px;
     width: 100%;
 }
+
+.border-tabs li a.active {
+    color: #4B88BC !important;
+    border-bottom: 3px solid #4B88BC !important;
+}
