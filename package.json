@@ -21,6 +21,7 @@
     "@fortawesome/fontawesome-free": "^5.15.3",
     "bootstrap": "^4.6.0",
     "jquery": "^3.5.1",
+    "ng-multiselect-dropdown": "^1.0.0-beta.15",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "uuidv4": "^6.2.13",

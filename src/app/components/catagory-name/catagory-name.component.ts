@@ -1,12 +1,20 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { v4 as uuidv4 } from 'uuid';
+
 @Component({
   selector: 'app-catagory-name',
   templateUrl: './catagory-name.component.html',
   styleUrls: ['./catagory-name.component.scss']
 })
 export class CatagoryNameComponent implements OnInit {
+  dropdownSettings!:IDropdownSettings;
+
+
+  dropdownList:{ item_id: number, item_text:string}[] = [];
+  selectedItems:{ item_id: number, item_text: string }[] = [];
+ 
 
   colorArray: any = [
     { color: "#FB760D", class: "orange", active: true },
@@ -14,6 +22,8 @@ export class CatagoryNameComponent implements OnInit {
     { color: "#21CC97", class: 'green', active: false },
     { color: "#6599FF", class: 'blue', active: false },
   ]
+
+ 
 
   catagoryForm = new FormGroup ({
     id: new FormControl(uuidv4()),
@@ -32,6 +42,33 @@ export class CatagoryNameComponent implements OnInit {
 
   ngOnInit(): void {
     this.defaultcolorSelect()
+      this.dropdownList = [
+        { item_id: 1, item_text: 'Role 1' },
+        { item_id: 2, item_text: 'Role 2' },
+        { item_id: 3, item_text: 'Role 3' },
+        { item_id: 4, item_text: 'Role 4' },
+      ];
+      // this.selectedItems = [
+      //   { item_id: 3, item_text: 'Pune' },
+      //   { item_id: 4, item_text: 'Navsari' }
+      // ];
+      this.dropdownSettings = {
+        singleSelection: false,
+        idField: 'item_id',
+        textField: 'item_text',
+        selectAllText: 'Select All',
+        unSelectAllText: 'UnSelect All',
+        itemsShowLimit: 3,
+        allowSearchFilter: true
+      };
+    
+  }
+
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
   }
 
   defaultcolorSelect(){

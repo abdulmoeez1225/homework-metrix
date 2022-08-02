@@ -3,11 +3,15 @@
         <div class="modal-content">
             <div class="modal-body pt-2">
                 <ul class="nav nav-tabs border-tabs custom-font-size-for-tabs">
-                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#generalInfoCat" >General</a></li>
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#generalInfoCat">General</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link " data-toggle="tab" href="#DatasorceCat">Data Sorce</a></li>
-                    <li class="nav-item"><a class="nav-link " data-toggle="tab" href="#validationCat">Validation</a></li>
-                    <li class="nav-item"><a class="nav-link " data-toggle="tab" href="#conditionalCat">Conditional</a></li>
-                    <li class="nav-item"><a class="nav-link " data-toggle="tab" href="#securityCat">Data security</a></li>
+                    <li class="nav-item"><a class="nav-link " data-toggle="tab" href="#validationCat">Validation</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link " data-toggle="tab" href="#conditionalCat">Conditional</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link " data-toggle="tab" href="#securityCat">Data security</a>
+                    </li>
                 </ul>
                 <div class="tab-content">
                     <div id="generalInfoCat" class="tab-pane fade in show active">
@@ -621,13 +625,21 @@
                                         <label>
                                             Roles
                                         </label>
-                                        <select class="js-example-basic-multiple form-control" name="states[]"
+                                        <!-- <select class="js-example-basic-multiple form-control" name="states[]"
                                             multiple="multiple">
                                             <option value="AL">Role 1</option>
                                             <option value="WY">Role 2</option>
                                             <option value="WY">Role 3</option>
                                             <option value="WY">Role 4</option>
-                                        </select>
+                                        </select> -->
+                                        <ng-multiselect-dropdown [placeholder]="'custom placeholder'"
+                                            [settings]="dropdownSettings" [data]="dropdownList"
+                                            [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
+                                            (onSelectAll)="onSelectAll($event)">
+                                        </ng-multiselect-dropdown>
+
+
+
                                     </div>
                                 </div>
                             </div>

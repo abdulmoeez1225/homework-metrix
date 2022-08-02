@@ -10,6 +10,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SubCatagoryComponent } from './components/sub-catagory/sub-catagory.component';
 import { ObjectCatagoryComponent } from './components/object-catagory/object-catagory.component';
 import { SubObjectComponent } from './components/sub-object/sub-object.component';
+import { NgMultiSelectDropDownModule } from "ng-multiselect-dropdown";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SubObjectComponent } from './components/sub-object/sub-object.component
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgMultiSelectDropDownModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
