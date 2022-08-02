@@ -1,6 +1,6 @@
 <div class="modal-dialog modal-dialog-slideout modal-lg custom-width" role="document">
     <form [formGroup]="catagoryForm" (ngSubmit)="saveData()">
-        <div class="modal-content">
+        <div class="modal-content custom-model-size">
             <div class="modal-body pt-2">
                 <ul class="nav nav-tabs border-tabs custom-font-size-for-tabs">
                     <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#generalInfoCat">General</a>
@@ -611,13 +611,20 @@
                                         <label>
                                             Personas
                                         </label>
-                                        <select class="js-example-basic-multiple form-control" name="states[]"
+                                        <!-- <select class="js-example-basic-multiple form-control" name="states[]"
                                             multiple="multiple">
                                             <option value="AL">Persona 1</option>
                                             <option value="WY">Persona 2</option>
                                             <option value="WY">Persona 3</option>
                                             <option value="WY">Persona 4</option>
-                                        </select>
+                                        </select> -->
+
+                                        <ng-multiselect-dropdown [placeholder]="'custom placeholder'"
+                                        [settings]="dropdownSettings2" [data]="dropdownList2"
+                                        [(ngModel)]="selectedItems" (onSelect)="onItemSelect2($event)"
+                                        (onSelectAll)="onSelectAll2($event)">
+                                    </ng-multiselect-dropdown>
+
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
@@ -625,13 +632,7 @@
                                         <label>
                                             Roles
                                         </label>
-                                        <!-- <select class="js-example-basic-multiple form-control" name="states[]"
-                                            multiple="multiple">
-                                            <option value="AL">Role 1</option>
-                                            <option value="WY">Role 2</option>
-                                            <option value="WY">Role 3</option>
-                                            <option value="WY">Role 4</option>
-                                        </select> -->
+                                     
                                         <ng-multiselect-dropdown [placeholder]="'custom placeholder'"
                                             [settings]="dropdownSettings" [data]="dropdownList"
                                             [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"

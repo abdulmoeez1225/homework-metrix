@@ -21,15 +21,16 @@
                                     </div>
                                     <div class="canvas-tree col-10 flex-grow-1 pl-2 pr-2">
                                         <div class="all-sub-obj row row-tree flex-nowrap">
-                                            <div class="single-add-obj-action p-2">
-                                                <div class="add-obj-btn" (click)="opencatagoryobject(item.id)">
-                                                    <i class="fas fa-plus fas-plus" *ngIf="hidecatObj"></i>
-                                                </div>
+                                            <div class="single-add-obj-action p-2 d-flex flex-gap">
+                                                
                                                 <div class="obj-canvas-container"
-                                                    *ngFor="let item3 of item.catagoryObject">
-                                                    <div [style.backgroundColor]="item.color">
+                                                    *ngFor="let item3 of item.catagoryObject;  index as index">
+                                                    <div [style.backgroundColor]="item.color"  [ngClass]="{'tag-shape1': index===0,'tag-shape2':index===1 || index>2,'tag-shape3':index===2}">
                                                         <h6 class="obj-title">{{item3.name}}</h6>
                                                     </div>
+                                                </div>
+                                                <div class="add-obj-btn" (click)="opencatagoryobject(item.id)">
+                                                    <i class="fas fa-plus fas-plus" *ngIf="hidecatObj"></i>
                                                 </div>
                                             </div>
                                         </div>

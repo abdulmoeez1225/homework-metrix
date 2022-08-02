@@ -10,9 +10,13 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class CatagoryNameComponent implements OnInit {
   dropdownSettings!:IDropdownSettings;
+  dropdownSettings2!:IDropdownSettings;
+
 
 
   dropdownList:{ item_id: number, item_text:string}[] = [];
+  dropdownList2:{ item_id: number, item_text:string}[] = [];
+
   selectedItems:{ item_id: number, item_text: string }[] = [];
  
 
@@ -42,6 +46,14 @@ export class CatagoryNameComponent implements OnInit {
 
   ngOnInit(): void {
     this.defaultcolorSelect()
+      this.dropdownList2 = [
+        { item_id: 1, item_text: 'Persona 1' },
+        { item_id: 2, item_text: 'Persona 2' },
+        { item_id: 3, item_text: 'Persona 3' },
+        { item_id: 4, item_text: 'Persona 4' },
+      ];
+
+
       this.dropdownList = [
         { item_id: 1, item_text: 'Role 1' },
         { item_id: 2, item_text: 'Role 2' },
@@ -52,7 +64,18 @@ export class CatagoryNameComponent implements OnInit {
       //   { item_id: 3, item_text: 'Pune' },
       //   { item_id: 4, item_text: 'Navsari' }
       // ];
+     
       this.dropdownSettings = {
+        singleSelection: false,
+        idField: 'item_id',
+        textField: 'item_text',
+        selectAllText: 'Select All',
+        unSelectAllText: 'UnSelect All',
+        itemsShowLimit: 3,
+        allowSearchFilter: true
+      };
+
+      this.dropdownSettings2 = {
         singleSelection: false,
         idField: 'item_id',
         textField: 'item_text',
@@ -68,6 +91,13 @@ export class CatagoryNameComponent implements OnInit {
     console.log(item);
   }
   onSelectAll(items: any) {
+    console.log(items);
+  }
+
+  onItemSelect2(item: any) {
+    console.log(item);
+  }
+  onSelectAll2(items: any) {
     console.log(items);
   }
 

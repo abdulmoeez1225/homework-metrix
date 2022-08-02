@@ -171,3 +171,29 @@
     color: #384E64;
     padding-left: 15px !important;
 }
+
+.custom-model-size{
+    min-height: 600px;
+}
+
+.flex-gap{
+    gap:10px
+}
+
+.tag-shape1{
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+    width: 150px;
+    padding:15px
+}
+
+.tag-shape2{
+border-radius: 20px;   
+ width: 150px;
+ padding:15px
+}
+
+.tag-shape3{
+    clip-path: polygon(7% 1%, 5% 3%, 4% 6%, 3% 90%, 6% 94%, 8% 96%, 82% 95%, 82% 83%, 96% 89%, 82% 69%, 83% 5%, 81% 3%, 79% 2%, 76% 1%);
+    width: 150px;
+    padding:15px
+}
