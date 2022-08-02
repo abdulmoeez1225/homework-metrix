@@ -1,31 +1,88 @@
-<div class="container-fluid main mt-3">
+<div class="showOverlay" *ngIf="showOverlay"></div>
+<div class="container-fluid main">
     <div class="row">
         <div class="col-sm-12 col-md-12 mb-3 page-content col-lg-12">
             <div class="row mb-3">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
-                        <div class="card-body p-2">
-                            <div class="main-canvas map-list">
-                                <button (click)="openModelCatagory()" >Add Catagory</button>
-                                <br><br>
-                                <button (click)="opensubCatagory()" >Add Sub Catagoru</button>
+                        <div class="card-body p-2" *ngFor="let item of mainArray; index as idx">
+                            <div class="main-canvas map-list " [style.border-color]="item.color">
+                                <div class="canvas-row d-flex">
+                                    <div class="focus-area col-2">
+                                        <ul class="map-cat">
+                                            <li>
+                                                <h6 class="focus-area">{{item.name}}</h6>
+                                            </li>
+                                            <a class="add-subcat map-link ml-2" (click)="opensubCatagory(item.id)">
+                                                <i class="fas fa-plus mr-1"></i>
+                                                Add Sub Catagory
+                                            </a>
+                                        </ul>
+                                    </div>
+                                    <div class="canvas-tree col-10 flex-grow-1 pl-2 pr-2">
+                                        <div class="all-sub-obj row row-tree flex-nowrap">
+                                            <div class="single-add-obj-action p-2">
+                                                <div class="add-obj-btn" (click)="opencatagoryobject(item.id)">
+                                                    <i class="fas fa-plus fas-plus" *ngIf="hidecatObj"></i>
+                                                </div>
+                                                <div class="obj-canvas-container"
+                                                    *ngFor="let item3 of item.catagoryObject">
+                                                    <div [style.backgroundColor]="item.color">
+                                                        <h6 class="obj-title">{{item3.name}}</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="canvas-row d-flex" *ngFor="let item2 of item.Sub">
+                                    <div class="focus-area col-2">
+                                        <ul class="map-cat">
+                                            <li>
+                                                <h6 class="focus-area">{{item2.name}}</h6>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="canvas-tree col-10 flex-grow-1 pl-2 pr-2">
+                                        <div class="all-sub-obj row row-tree flex-nowrap">
+                                            <div class="single-add-obj-action p-2">
+                                                <div class="add-obj-btn"
+                                                    (click)="opensubobject(item.id, item2.id, idx)">
+                                                    <i class="fas fa-plus fas-plus" *ngIf="hidesubobjbtn"></i>
+                                                    <div class="obj-canvas-container"
+                                                        *ngFor="let item4 of item2.subObject">
+                                                        <div [style.backgroundColor]="item.color">
+                                                            <h6 class="obj-title">{{item4.name}}</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <a class="add-force-area tree-add-action p-3" (click)="openModelCatagory()">
+                            <i class="fas fa-plus mr-1"></i>
+                            Add New Catagory
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<app-catagory-name 
-*ngIf="showCatagorynameModel" 
-class="catagoryNameModel" 
-(catagoryFormData)="catagoryFormData($event)" 
-(closeModelCatagory)="closeModelCatagory($event)"
-></app-catagory-name>
-<app-sub-catagory 
-*ngIf="showsubModel"
-class="subModel"
-(subFormData)="subFormData($event)"
-(closeModelSub)="closeModelSub($event)"
-></app-sub-catagory>
+
+
+<app-catagory-name *ngIf="showCatagorynameModel" class="catagoryNameModel" (catagoryFormData)="catagoryFormData($event)"
+    (closeModelCatagory)="closeModelCatagory($event)"></app-catagory-name>
+
+<app-object-catagory *ngIf="showCatagoryObjectModel" class="catagoryObjectModel"
+    (objectcatagoryData)="objectcatagoryData($event)" (closeModelObject)="closeModelObject($event)">
+</app-object-catagory>
+
+<app-sub-catagory *ngIf="showsubModel" class="subModel" (subFormData)="subFormData($event)"
+    (closeModelSub)="closeModelSub($event)"></app-sub-catagory>
+
+<app-sub-object *ngIf="showSubobjectModel" class="subObjectModel" (objectsubData)="objectsubData($event)"
+    (closesubObjectModel)="closesubObjectModel($event)"></app-sub-object>

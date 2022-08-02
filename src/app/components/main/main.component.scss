@@ -1,4 +1,13 @@
-.catagoryNameModel{
+.showOverlay {
+    position: fixed;
+    background-color: #2e2c2c;
+    z-index: 6;
+    height: 1400px;
+    width: 1100px;
+    opacity: 0.5;
+    margin-top: -72px;
+}
+.catagoryNameModel {
     position: absolute;
     z-index: 8;
     top: -1.75rem;
@@ -6,11 +15,159 @@
     width: 450px;
     height: 70px !important;
 }
-.subModel{
+
+.catagoryObjectModel {
+    position: absolute;
+    z-index: 8;
+    top: -1.75rem;
+    right: 0px;
+    width: 450px;
+    height: 70px !important;
+}
+
+.subModel {
     position: absolute;
     z-index: 10;
     top: -1.75rem;
     right: 0px;
     width: 560px;
-    // height: 70px !important;
+    height: 70px !important;
+}
+
+.subObjectModel {
+    position: absolute;
+    z-index: 10;
+    top: -1.75rem;
+    right: 0px;
+    width: 560px;
+    height: 70px !important;
+}
+
+.map-list{
+    border-left: 5px solid;
+    flex-grow: inherit;
+}
+
+.map-cat {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.focus-area{
+    border: 1px solid lightgray;
+    border-right: none !important;
+    width: 160px;
+}
+.map-cat li {
+    height: 120px;
+}
+
+.focus-area h6 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #384E64;
+    padding: 10px;
+    border: none !important;
+}
+
+.add-map-link {
+    position: absolute;
+    bottom: 7px;
+    font-size: 11px;
+    padding: 5px 10px !important;
+    border-radius: 4px;
+    left: 7px;
+    display: none;
+}
+
+.add-subcat {
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid rgb(255, 241, 214);
+    padding: 1px;
+    color: #091929;
+}
+
+.add-subcat:hover {
+    color: white;
+    background-color: #122335;
+    border: 1px solid #122335;
+    padding: 3px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.canvas-tree {
+    background-color: rgba(247, 165, 50, 0.08);
+    overflow-y: hidden;
+    border: 1px solid lightgray;
+}
+.flex-grow-1{
+    flex-grow: 1!important;
+}
+.all-sub-obj {
+    height: 120px;
+}
+.row-tree {
+    margin-right: -7.5px !important;
+    margin-left: -7.5px !important;
+    display: flex;
+}
+.flex-nowrap {
+    flex-wrap: nowrap!important;
+}
+.single-add-obj-action {
+    position: relative;
+    width: 170px;
+    height: 100%;
+    min-width: 170px;
+}
+.add-obj-btn{
+    text-align: center;
+    line-height: 100px;
+    width: 100%;
+    font-size: 20px;
+    color: #696969;
+    cursor: pointer;
+}
+.add-obj-btn:hover {
+    border: 1px dashed #a6adb2;
+    border-radius: 6px;
+    color: #696969;
+    text-align: center;
+    line-height: 100px;
+    width: 100%;
+    font-size: 20px;
+    cursor: pointer;
+    display: block !important;
+    transition: 0.3s;
+}
+.obj-canvas-container {
+    position: relative;
+    height: 100%;
+}
+.obj-title {
+    position: relative;
+    z-index: 999;
+    font-size: 18px;
+    padding-top: 15px;
+    padding-left: 5px;
+    padding-right: 19px;
+    height: 105px;
+    color: white;
+}
+.fas-plus{
+    height: 40px;
+}
+.add-force-area {
+    line-height: 40px;
+    cursor: pointer;
+    padding: 0px !important;
+}
+.tree-add-action {
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    color: #384E64;
+    padding-left: 15px !important;
 }

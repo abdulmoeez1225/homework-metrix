@@ -8,6 +8,8 @@ import { CatagoryNameComponent } from './components/catagory-name/catagory-name.
 import { MainComponent } from './components/main/main.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SubCatagoryComponent } from './components/sub-catagory/sub-catagory.component';
+import { ObjectCatagoryComponent } from './components/object-catagory/object-catagory.component';
+import { SubObjectComponent } from './components/sub-object/sub-object.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { SubCatagoryComponent } from './components/sub-catagory/sub-catagory.com
     CatagoryNameComponent,
     MainComponent,
     SubCatagoryComponent,
+    ObjectCatagoryComponent,
+    SubObjectComponent,
   ],
   imports: [
     BrowserModule,

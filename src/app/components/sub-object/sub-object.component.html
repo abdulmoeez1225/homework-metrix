@@ -1,0 +1,638 @@
+<div class="modal-dialog modal-dialog-slideout modal-lg custom-width" role="document">
+    <form [formGroup]="formObjectSub" (ngSubmit)="saveData()">
+        <div class="modal-content">
+            <div class="modal-body pt-2">
+                <ul class="nav nav-tabs border-tabs custom-font-size-for-tabs">
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#generalInfoCat" class="active">General</a></li>
+                    <li class="nav-item"><a class="nav-link " data-toggle="tab" href="#DatasorceCat">Data Sorce</a></li>
+                    <li class="nav-item"><a class="nav-link " data-toggle="tab" href="#validationCat">Validation</a></li>
+                    <li class="nav-item"><a class="nav-link " data-toggle="tab" href="#conditionalCat">Conditional</a></li>
+                    <li class="nav-item"><a class="nav-link " data-toggle="tab" href="#securityCat">Data security</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="generalInfoCat" class="tab-pane fade in show active">
+                        <div class="form-container mt-2 pt-1">
+                            <div class="row mt-2">
+                                <div class="col-sm-12 mb-3">
+                                    <div class="form-group">
+                                        <div class="row d-flex">
+                                            <div class="col-sm-4">
+                                                <input type="hidden" formControlName="id">
+                                                <label>Language</label>
+                                                <select formControlName="language" class="form-control">
+                                                    <option value="" disabled selected hidden>English</option>
+                                                    <option>English</option>
+                                                    <option>Arabic</option>
+                                                    <option>French</option>
+                                                    <option>Chinese</option>
+                                                </select>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <label>
+                                                    Label
+                                                </label>
+                                                <input type="text" placeholder="Name" formControlName="name"
+                                                    id="forceTitleInput" value="Category name" class="form-control">
+                                            </div>
+                                            <div class="hidden">
+                                                <span class="action-icon remove-icon ml-2 lang-action action-icon">
+                                                    <img src="assets/images/delete-icon.svg" />
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-12 mt-2">
+                                                <label for="exampleFormControlTextarea1">
+                                                    Description
+                                                </label>
+                                                <textarea formControlName="description" class="form-control text-area"
+                                                    placeholder="Enter Description" rows="2"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-default addNewLang">
+                                        <img class="mr-1" src="assets/images/add-white.svg">
+                                        Add Language
+                                    </button>
+                                </div>
+
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label>
+                                            Data type
+                                        </label>
+                                        <select formControlName="dataType" class="form-control" id="sel1">
+                                            <option value="" disabled selected hidden>Select</option>
+                                            <option>Boolean</option>
+                                            <option>Int</option>
+                                            <option>Char</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label>
+                                            Priority
+                                        </label>
+                                        <select formControlName="priority" class="form-control" id="sel1">
+                                            <option value="" disabled selected hidden>Select</option>
+                                            <option>High</option>
+                                            <option>Medium</option>
+                                            <option>Low</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label>
+                                                    Language dependent
+                                                </label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="LanguageDependent" name="example">
+                                                    <label class="custom-control-label" for="LanguageDependent"></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label>
+                                                    Required
+                                                </label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="Required"
+                                                        name="Required-input">
+                                                    <label class="custom-control-label" for="Required"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="validationCat" class="tab-pane fade">
+                        <div class="form-container mt-2 pt-1">
+                            <div class="row mt-2">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>
+                                            Validate On
+                                        </label>
+                                        <select class="form-control">
+                                            <option>Change</option>
+                                            <option>Blur</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 mb-3">
+                                    <div class="form-group check-awesome-control m-0-a">
+                                        <input type="checkbox" class="d-non" id="check-r1" />
+                                        <label class="checkbox-awesom float-left ml-4" for="check-r1">
+                                            <span class="circle"></span>
+                                            <span class="check"></span>
+                                            <span class="box"></span>
+                                            <span class="pl-4 ml-3">Required</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 mb-3">
+                                    <div class="form-group check-awesome-control m-0-a">
+                                        <input type="checkbox" class="d-non" id="check-u1" />
+                                        <label class="checkbox-awesom float-left ml-4" for="check-u1">
+                                            <span class="circle"></span>
+                                            <span class="check"></span>
+                                            <span class="box"></span>
+                                            <span class="pl-4 ml-3">Unique</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label>
+                                            Minimum Length
+                                        </label>
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label>
+                                            Maximum Length
+                                        </label>
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label>
+                                            Minimum Word Length
+                                        </label>
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label>
+                                            Maximum Word Length
+                                        </label>
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label>
+                                            Regular Expression Pattern
+                                        </label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label>
+                                            Error Label
+                                        </label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>
+                                            Custom Error Message
+                                        </label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="conditionalCat" class="tab-pane fade">
+                        <div class="form-container mt-2 pt-1">
+                            <div class="row mt-2">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>
+                                            This component should Display
+                                        </label>
+                                        <select class="form-control">
+                                            <option>True</option>
+                                            <option>False</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>
+                                            When the form component
+                                        </label>
+                                        <select class="form-control">
+                                            <option>Submit</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>
+                                            Has the value
+                                        </label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="DatasorceCat" class="tab-pane fade">
+                        <div class="form-container mt-2 pt-1">
+                            <div class="row mt-2">
+                                <div class="col-sm-12">
+                                    <div class="card mt-2">
+                                        <div class="card-header">
+                                            <h4 class="card-title">
+                                                System Data
+                                            </h4>
+                                        </div>
+                                        <div class="card-body p-2">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <a class="decoration-none showSelect">
+                                                        <div class="single-data-box d-flex px-3 py-2">
+                                                            <div class="text-center mr-3">
+                                                                <img src="assets/images/database-storage.svg" />
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="data-title">System Data</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div class="collapse">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <label>Select Data Sorce</label>
+                                                                <select class="form-control">
+                                                                    <option>Data Sorce 1</option>
+                                                                    <option>Data Sorce 2</option>
+                                                                    <option>Data Sorce 3</option>
+                                                                    <option>Data Sorce 4</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-2">
+                                        <div class="card-header">
+                                            <h4 class="card-title">
+                                                File
+                                            </h4>
+                                        </div>
+                                        <div class="card-body p-2">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <a class="decoration-none showSelect">
+                                                        <div class="single-data-box d-flex px-3 py-2">
+                                                            <div class="text-center mr-3">
+                                                                <img src="assets/images/CSV.png" />
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="data-title">CSV</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <a class="decoration-none showSelect">
+                                                        <div class="single-data-box d-flex px-3 py-2">
+                                                            <div class="text-center mr-3">
+                                                                <img src="assets/images/excel.png" />
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="data-title">Excel</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <a class="decoration-none showSelect">
+                                                        <div class="single-data-box d-flex px-3 py-2">
+                                                            <div class="text-center mr-3">
+                                                                <img src="assets/images/JSON.png" />
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="data-title">JSON</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <a class="decoration-none showSelect">
+                                                        <div class="single-data-box d-flex px-3 py-2">
+                                                            <div class="text-center mr-3">
+                                                                <img src="assets/images/XML.png" />
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="data-title">XML</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div class="collapse">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <label>Select Data Sorce</label>
+                                                                <select class="form-control">
+                                                                    <option>Data Sorce 1</option>
+                                                                    <option>Data Sorce 2</option>
+                                                                    <option>Data Sorce 3</option>
+                                                                    <option>Data Sorce 4</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-2">
+                                        <div class="card-header">
+                                            <h4 class="card-title">
+                                                SQL
+                                            </h4>
+                                        </div>
+                                        <div class="card-body p-2">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <a class="decoration-none showSelect">
+                                                        <div class="single-data-box d-flex px-3 py-2">
+                                                            <div class="text-center mr-3">
+                                                                <img src="assets/images/Firebird.png" />
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="data-title">Firebird</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <a class="decoration-none showSelect">
+                                                        <div class="single-data-box d-flex px-3 py-2">
+                                                            <div class="text-center mr-3">
+                                                                <img src="assets/images/MySQL.png" />
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="data-title">MySQL</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <a class="decoration-none showSelect">
+                                                        <div class="single-data-box d-flex px-3 py-2">
+                                                            <div class="text-center mr-3">
+                                                                <img src="assets/images/Oracle.png" />
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="data-title">Oracle</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <a class="decoration-none showSelect">
+                                                        <div class="single-data-box d-flex px-3 py-2">
+                                                            <div class="text-center mr-3">
+                                                                <img src="assets/images/PostgreSQL.png" />
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="data-title">PostgreSQL</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <a class="decoration-none showSelect">
+                                                        <div class="single-data-box d-flex px-3 py-2">
+                                                            <div class="text-center mr-3">
+                                                                <img src="assets/images/MS SQL.png" />
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="data-title">MS SQL</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div class="collapse">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <label>Select Data Sorce</label>
+                                                                <select class="form-control">
+                                                                    <option>Data Sorce 1</option>
+                                                                    <option>Data Sorce 2</option>
+                                                                    <option>Data Sorce 3</option>
+                                                                    <option>Data Sorce 4</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-2">
+                                        <div class="card-header">
+                                            <h4 class="card-title">
+                                                REST
+                                            </h4>
+                                        </div>
+                                        <div class="card-body p-2">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <a class="decoration-none showSelect">
+                                                        <div class="single-data-box d-flex px-3 py-2">
+                                                            <div class="text-center mr-3">
+                                                                <img src="assets/images/OData.png" />
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="data-title">OData</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div class="collapse">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <label>Select Data Sorce</label>
+                                                                <select class="form-control">
+                                                                    <option>Data Sorce 1</option>
+                                                                    <option>Data Sorce 2</option>
+                                                                    <option>Data Sorce 3</option>
+                                                                    <option>Data Sorce 4</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-2">
+                                        <div class="card-header">
+                                            <h4 class="card-title">
+                                                Online Services
+                                            </h4>
+                                        </div>
+                                        <div class="card-body p-2">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <a class="decoration-none showSelect">
+                                                        <div class="single-data-box d-flex px-3 py-2">
+                                                            <div class="text-center mr-3">
+                                                                <img src="assets/images/DataWorld.png" />
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="data-title">Data.World</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <a class="decoration-none showSelect">
+                                                        <div class="single-data-box d-flex px-3 py-2">
+                                                            <div class="text-center mr-3">
+                                                                <img src="assets/images/Quickbooks.png" />
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="data-title">Quickbooks</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div class="collapse">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <label>Select Data Sorce</label>
+                                                                <select class="form-control">
+                                                                    <option>Data Sorce 1</option>
+                                                                    <option>Data Sorce 2</option>
+                                                                    <option>Data Sorce 3</option>
+                                                                    <option>Data Sorce 4</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-2">
+                                        <div class="card-header">
+                                            <h4 class="card-title">
+                                                Objects
+                                            </h4>
+                                        </div>
+                                        <div class="card-body p-2">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <a class="decoration-none showSelect">
+                                                        <div class="single-data-box d-flex px-3 py-2">
+                                                            <div class="text-center mr-3">
+                                                                <img src="assets/images/Datafrom.png" />
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="data-title">DataSet, DataTables</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <a class="decoration-none showSelect">
+                                                        <div class="single-data-box d-flex px-3 py-2">
+                                                            <div class="text-center mr-3">
+                                                                <img src="assets/images/other-data.png" />
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="data-title">Other Data Source</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div class="collapse">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <label>Select Data Sorce</label>
+                                                                <select class="form-control">
+                                                                    <option>Data Sorce 1</option>
+                                                                    <option>Data Sorce 2</option>
+                                                                    <option>Data Sorce 3</option>
+                                                                    <option>Data Sorce 4</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="securityCat" class="tab-pane fade">
+                        <div class="form-container mt-2 pt-1">
+                            <div class="row mt-2">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>
+                                            Personas
+                                        </label>
+                                        <select class="js-example-basic-multiple form-control" name="states[]"
+                                            multiple="multiple">
+                                            <option value="AL">Persona 1</option>
+                                            <option value="WY">Persona 2</option>
+                                            <option value="WY">Persona 3</option>
+                                            <option value="WY">Persona 4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>
+                                            Roles
+                                        </label>
+                                        <select class="js-example-basic-multiple form-control" name="states[]"
+                                            multiple="multiple">
+                                            <option value="AL">Role 1</option>
+                                            <option value="WY">Role 2</option>
+                                            <option value="WY">Role 3</option>
+                                            <option value="WY">Role 4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer p-2">
+                <button data-dismiss="modal" aria-label="Close" type="submit" id="saveForceChanges"
+                    class="btn icon-btn search-btn mt-2 float-right btn-width">
+                    <img src="assets/images/save-icon.svg" />
+                    Save
+                </button>
+                <button data-dismiss="modal" aria-label="Close" (click)="cancelData()" type="button"
+                    class="btn icon-btn btn-secondary float-right ml-3 mt-2 btn-width">
+                    <img src="assets/images/rejected.svg">
+                    Cancel
+                </button>
+
+            </div>
+        </div>
+    </form>
+</div>
