@@ -1,4 +1,4 @@
-<?xml version="1.0" standalone="yes"?>
+<!-- <?xml version="1.0" standalone="yes"?>
 <xs:schema id="Demo" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
   <xs:element name="Demo" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
     <xs:complexType>
@@ -242,4 +242,4 @@
       <xs:field xpath="ProductID" />
     </xs:keyref>
   </xs:element>
-</xs:schema>
+</xs:schema> -->

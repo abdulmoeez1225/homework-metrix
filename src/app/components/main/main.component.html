@@ -29,9 +29,11 @@
                                                         <h6 class="obj-title">{{item3.name}}</h6>
                                                     </div>
                                                 </div>
-                                                <div class="add-obj-btn" (click)="opencatagoryobject(item.id)">
-                                                    <i class="fas fa-plus fas-plus" *ngIf="hidecatObj"></i>
+                                                <div>
+                                                <div class="add-obj-btn" (click)="openCatagoryObject(item.id)">
+                                                    <i class="fas fa-plus fas-plus"></i>
                                                 </div>
+                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -46,17 +48,18 @@
                                     </div>
                                     <div class="canvas-tree col-10 flex-grow-1 pl-2 pr-2">
                                         <div class="all-sub-obj row row-tree flex-nowrap">
-                                            <div class="single-add-obj-action p-2">
-                                                <div class="add-obj-btn"
-                                                    (click)="opensubobject(item.id, item2.id, idx)">
-                                                    <i class="fas fa-plus fas-plus" *ngIf="hidesubobjbtn"></i>
-                                                    <div class="obj-canvas-container"
-                                                        *ngFor="let item4 of item2.subObject">
-                                                        <div [style.backgroundColor]="item.color">
-                                                            <h6 class="obj-title">{{item4.name}}</h6>
-                                                        </div>
+                                            <div class="single-add-obj-action p-2 d-flex flex-gap">
+                                                <div class="obj-canvas-container"
+                                                    *ngFor="let item4 of item2.subObject;  index as index">
+                                                    <div [style.backgroundColor]="item.color"  [ngClass]="{'tag-shape1': index===0,'tag-shape2':index===1 || index>2,'tag-shape3':index===2}">
+                                                        <h6 class="obj-title">{{item4.name}}</h6>
                                                     </div>
                                                 </div>
+                                                <div>
+                                                <div class="add-obj-btn" (click)="opensubobject(item.id, item2.id, idx)">
+                                                    <i class="fas fa-plus fas-plus"></i>
+                                                </div>
+                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -74,16 +77,15 @@
     </div>
 </div>
 
-
-<app-catagory-name *ngIf="showCatagorynameModel" class="catagoryNameModel" (catagoryFormData)="catagoryFormData($event)"
+<app-catagory-name *ngIf="showCatagoryNameModel" class="catagoryNameModel" (catagoryFormData)="catagoryFormData($event)"
     (closeModelCatagory)="closeModelCatagory($event)"></app-catagory-name>
 
 <app-object-catagory *ngIf="showCatagoryObjectModel" class="catagoryObjectModel"
-    (objectcatagoryData)="objectcatagoryData($event)" (closeModelObject)="closeModelObject($event)">
+    (objectCatagoryData)="objectCatagoryData($event)" (closeModelObject)="closeModelObject($event)">
 </app-object-catagory>
 
-<app-sub-catagory *ngIf="showsubModel" class="subModel" (subFormData)="subFormData($event)"
+<app-sub-catagory *ngIf="showSubModel" class="subModel" (subFormData)="subFormData($event)"
     (closeModelSub)="closeModelSub($event)"></app-sub-catagory>
 
-<app-sub-object *ngIf="showSubobjectModel" class="subObjectModel" (objectsubData)="objectsubData($event)"
-    (closesubObjectModel)="closesubObjectModel($event)"></app-sub-object>
+<app-sub-object *ngIf="showSubObjectModel" class="subObjectModel" (objectSubData)="objectSubData($event)"
+    (closeSubObjectModel)="closeSubObjectModel($event)"></app-sub-object>

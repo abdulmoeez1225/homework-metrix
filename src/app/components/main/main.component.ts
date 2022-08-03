@@ -7,52 +7,45 @@ import { Service } from './maindata.service'
   providers: [Service]
 })
 export class MainComponent implements OnInit {
-  showCatagorynameModel = false;
+  showCatagoryNameModel = false;
   showOverlay = false
   mainArray: any = [];
-  showsubModel = false
+  showSubModel = false
   showCatagoryObjectModel = false;
-  showSubobjectModel = false;
+  showSubObjectModel = false;
   globelCatagoryId: any;
   globalIdSubCatagory: any
-  indexofcatagory: any
-  indexofSub: any
-  hidesubobjbtn = true
-  hidecatObj = true
+  indexOfCatagory: any
+  indexOfSub: any
+
   constructor(private data: Service) { 
     this.mainArray = data.getData()
   }
 
   ngOnInit(): void {
-
   }
 
   openModelCatagory() {
-    this.showCatagorynameModel = !this.showCatagorynameModel;
+    this.showCatagoryNameModel = !this.showCatagoryNameModel;
     this.showOverlay = true
-    this.hidecatObj = true
   }
 
   catagoryFormData(data: any) {
     data.Sub = [];
     data.catagoryObject = [];
     this.mainArray.push(data);
-    this.showCatagorynameModel = false;
+    this.showCatagoryNameModel = false;
     this.showOverlay = false;
-
   }
 
-  opencatagoryobject(data: any) {
+  openCatagoryObject(data: any) {
     this.showOverlay = true;
     this.globelCatagoryId = data;
     this.showCatagoryObjectModel = !this.showCatagoryObjectModel
-
   }
-  objectcatagoryData(data: any) {
+  objectCatagoryData(data: any) {
     let dataofid = this.mainArray.find((idData: any) => idData.id == this.globelCatagoryId);
     this.mainArray[this.mainArray.indexOf(dataofid)].catagoryObject.push(data);
-    this.hidecatObj = false
-    console.log("data received in parent", this.mainArray)
     this.showCatagoryObjectModel = false;
     this.showOverlay = false;
 
@@ -67,57 +60,57 @@ export class MainComponent implements OnInit {
 
   closeModelCatagory(bol: boolean) {
     if (bol == false) {
-      this.showCatagorynameModel = false;
+      this.showCatagoryNameModel = false;
       this.showOverlay = false
     }
   }
 
   opensubCatagory(data: any) {
     this.globelCatagoryId = data;
-    this.showsubModel = true;
-    this.hidesubobjbtn = true;
+    this.showSubModel = true;
+    this.showOverlay = true;
   }
 
   subFormData(data: any) {
     let dataofid = this.mainArray.find((idData: any) => idData.id == this.globelCatagoryId);
     data.subObject = [];
     this.mainArray[this.mainArray.indexOf(dataofid)].Sub.push(data);
-    console.log(data, "=<data", "array", this.mainArray);
-    this.showsubModel = false;
+    this.showSubModel = false;
     this.showOverlay = false;
   }
 
   closeModelSub(bol: boolean) {
     if (bol == false) {
-      this.showsubModel = false;
+      this.showSubModel = false;
       this.showOverlay = false;
     }
   }
 
   opensubobject(id1: any, id2: any, indexcat: any) {
+
+    let data = this.mainArray[indexcat].Sub.find((idData: any) => idData.id == id2);
+    if(this.mainArray[indexcat].catagoryObject.length != data.subObject.length){
     this.globelCatagoryId = id1;
     this.globalIdSubCatagory = id2;
-    this.indexofcatagory = indexcat;
-    this.showSubobjectModel = !this.showSubobjectModel;
+    this.indexOfCatagory = indexcat;
+    this.showSubObjectModel = !this.showSubObjectModel;
     this.showOverlay = true;
+    }
   }
 
-  objectsubData(data: any) {
+  objectSubData(data: any) {
 
-    let dataofid = this.mainArray.find((idData: any) => idData.id == this.globelCatagoryId);
-    let dataofid2 = this.mainArray[this.indexofcatagory].Sub.find((idData: any) => idData.id == this.globalIdSubCatagory);
-
-    let maain = this.mainArray[this.mainArray.indexOf(dataofid)].Sub;
-    maain[maain.indexOf(dataofid2)].subObject.push(data);
-    this.showSubobjectModel = false;
-
-    this.hidesubobjbtn = false;
+    let dataOfid = this.mainArray.find((idData: any) => idData.id == this.globelCatagoryId);
+    let dataOfid2 = this.mainArray[this.indexOfCatagory].Sub.find((idData: any) => idData.id == this.globalIdSubCatagory);
+    let maain = this.mainArray[this.mainArray.indexOf(dataOfid)].Sub;
+    maain[maain.indexOf(dataOfid2)].subObject.push(data);
+    this.showSubObjectModel = false;
     this.showOverlay = false
   }
 
-  closesubObjectModel(bol: any) {
+  closeSubObjectModel(bol: any) {
     if (bol == false) {
-      this.showSubobjectModel = false;
+      this.showSubObjectModel = false;
       this.showOverlay = false;
     }
   }

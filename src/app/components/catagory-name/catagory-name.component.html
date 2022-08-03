@@ -611,18 +611,9 @@
                                         <label>
                                             Personas
                                         </label>
-                                        <!-- <select class="js-example-basic-multiple form-control" name="states[]"
-                                            multiple="multiple">
-                                            <option value="AL">Persona 1</option>
-                                            <option value="WY">Persona 2</option>
-                                            <option value="WY">Persona 3</option>
-                                            <option value="WY">Persona 4</option>
-                                        </select> -->
-
                                         <ng-multiselect-dropdown [placeholder]="'custom placeholder'"
                                         [settings]="dropdownSettings2" [data]="dropdownList2"
-                                        [(ngModel)]="selectedItems" (onSelect)="onItemSelect2($event)"
-                                        (onSelectAll)="onSelectAll2($event)">
+                                        [(ngModel)]="selectedItems">
                                     </ng-multiselect-dropdown>
 
                                     </div>
@@ -632,15 +623,10 @@
                                         <label>
                                             Roles
                                         </label>
-                                     
                                         <ng-multiselect-dropdown [placeholder]="'custom placeholder'"
                                             [settings]="dropdownSettings" [data]="dropdownList"
-                                            [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
-                                            (onSelectAll)="onSelectAll($event)">
+                                            [(ngModel)]="selectedItems">
                                         </ng-multiselect-dropdown>
-
-
-
                                     </div>
                                 </div>
                             </div>
@@ -659,7 +645,6 @@
                     <img src="assets/images/rejected.svg">
                     Cancel
                 </button>
-
             </div>
         </div>
     </form>
