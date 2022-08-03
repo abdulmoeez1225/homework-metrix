@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Service } from './maindata.service'
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  styleUrls: ['./main.component.scss'],
+  providers: [Service]
 })
 export class MainComponent implements OnInit {
   showCatagorynameModel = false;
@@ -18,57 +19,17 @@ export class MainComponent implements OnInit {
   indexofSub: any
   hidesubobjbtn = true
   hidecatObj = true
-  constructor() { }
-
-  initialData() {
-    this.mainArray = [{
-      "id": "8533358c-82fb-403c-99c1-86c7f228018d",
-      "language": "",
-      "name": "ajaskdl",
-      "description": "",
-      "color": "orange",
-      "dataType": "",
-      "priority": "",
-      "Sub": [
-        {
-          "id": "0651e8f2-8f91-43e1-be7d-fc71a8b0f455",
-          "language": "",
-          "name": "hgjhg",
-          "description": "",
-          "dataType": "",
-          "priority": "",
-          "subObject": []
-        }
-      ],
-      "catagoryObject": [
-        {
-          "id": "d58c2e5c-2258-43c2-9f3a-e78b4ee1a93a",
-          "language": "",
-          "name": "asad",
-          "description": "",
-          "dataType": "",
-          "priority": ""
-        },
-        {
-          "id": "8219e1ab-7c44-44d6-8b2d-b003c856d682",
-          "language": "",
-          "name": "Category name",
-          "description": "",
-          "dataType": "",
-          "priority": ""
-        }
-      ]
-    }]
+  constructor(private data: Service) { 
+    this.mainArray = data.getData()
   }
 
   ngOnInit(): void {
-    this.initialData()
 
   }
 
   openModelCatagory() {
     this.showCatagorynameModel = !this.showCatagorynameModel;
-    this.showOverlay = !this.showOverlay
+    this.showOverlay = true
     this.hidecatObj = true
   }
 
@@ -77,12 +38,12 @@ export class MainComponent implements OnInit {
     data.catagoryObject = [];
     this.mainArray.push(data);
     this.showCatagorynameModel = false;
-    this.showOverlay = !this.showOverlay
+    this.showOverlay = false;
 
   }
 
   opencatagoryobject(data: any) {
-    this.showOverlay = !this.showOverlay
+    this.showOverlay = true;
     this.globelCatagoryId = data;
     this.showCatagoryObjectModel = !this.showCatagoryObjectModel
 
@@ -93,27 +54,27 @@ export class MainComponent implements OnInit {
     this.hidecatObj = false
     console.log("data received in parent", this.mainArray)
     this.showCatagoryObjectModel = false;
-    this.showOverlay = !this.showOverlay
+    this.showOverlay = false;
 
   }
 
   closeModelObject(bol: boolean) {
     if (bol == false) {
       this.showCatagoryObjectModel = false;
-      this.showOverlay = !this.showOverlay
+      this.showOverlay = false;
     }
   }
 
   closeModelCatagory(bol: boolean) {
     if (bol == false) {
       this.showCatagorynameModel = false;
-      this.showOverlay = !this.showOverlay
+      this.showOverlay = false
     }
   }
 
   opensubCatagory(data: any) {
     this.globelCatagoryId = data;
-    this.showsubModel = !this.showsubModel;
+    this.showsubModel = true;
     this.hidesubobjbtn = true;
   }
 
@@ -123,12 +84,13 @@ export class MainComponent implements OnInit {
     this.mainArray[this.mainArray.indexOf(dataofid)].Sub.push(data);
     console.log(data, "=<data", "array", this.mainArray);
     this.showsubModel = false;
+    this.showOverlay = false;
   }
 
   closeModelSub(bol: boolean) {
     if (bol == false) {
       this.showsubModel = false;
-      this.showOverlay = !this.showOverlay
+      this.showOverlay = false;
     }
   }
 
@@ -137,7 +99,7 @@ export class MainComponent implements OnInit {
     this.globalIdSubCatagory = id2;
     this.indexofcatagory = indexcat;
     this.showSubobjectModel = !this.showSubobjectModel;
-    this.showOverlay = !this.showOverlay
+    this.showOverlay = true;
   }
 
   objectsubData(data: any) {
@@ -150,13 +112,13 @@ export class MainComponent implements OnInit {
     this.showSubobjectModel = false;
 
     this.hidesubobjbtn = false;
-    this.showOverlay = !this.showOverlay
+    this.showOverlay = false
   }
 
   closesubObjectModel(bol: any) {
     if (bol == false) {
       this.showSubobjectModel = false;
-      this.showOverlay = !this.showOverlay
+      this.showOverlay = false;
     }
   }
 }
